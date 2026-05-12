@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Caminhos da Memória — apoio, informação e recursos para pessoas com Alzheimer e seus familiares cuidadores.">
+    <title>Caminhos da Memória — Apoio para Alzheimer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Barra de acessibilidade -->
+    <div class="accessibility-bar" role="region" aria-label="Controles de acessibilidade">
+        <div class="container">
+            <span class="accessibility-label">Acessibilidade:</span>
+            <button id="font-decrease" aria-label="Diminuir fonte" class="accessibility-btn">A−</button>
+            <button id="font-reset" aria-label="Tamanho normal" class="accessibility-btn">A</button>
+            <button id="font-increase" aria-label="Aumentar fonte" class="accessibility-btn">A+</button>
+            <button id="contrast-toggle" aria-label="Alto contraste" class="accessibility-btn">Alto Contraste</button>
+        </div>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo" aria-label="Caminhos da Memória - página inicial">
+                <span class="logo-icon" aria-hidden="true">CM</span>
+                <span class="logo-text">Caminhos da Memória</span>
+            </a>
+            <nav class="main-nav" aria-label="Navegação principal">
+                <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainMenu">
+                    <span aria-hidden="true">☰</span>
+                    <span class="sr-only">Abrir menu</span>
+                </button>
+                <ul class="menu" id="mainMenu">
+                    <li><a href="index.html" class="active">Início</a></li>
+                    <li><a href="pages/sobre-alzheimer.html">Sobre Alzheimer</a></li>
+                    <li><a href="pages/cuidador.html">Para Cuidadores</a></li>
+                    <li><a href="pages/atividades.html">Atividades</a></li>
+                    <li><a href="pages/comunidade.html">Comunidade</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+            <span class="hero-eyebrow">Apoio especializado para famílias</span>
+            <h1 id="hero-title">Informação confiável e ferramentas práticas no cuidado com Alzheimer</h1>
+            <p class="hero-subtitle">
+                Um espaço criado para acompanhar pacientes com a doença de Alzheimer
+                e oferecer suporte aos familiares cuidadores ao longo dessa jornada.
+            </p>
+            <div class="hero-actions">
+                <a href="pages/sobre-alzheimer.html" class="btn btn-primary">Conhecer a doença</a>
+                <a href="pages/cuidador.html" class="btn btn-secondary">Recursos para cuidadores</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seções principais -->
+    <main id="main-content">
+        <section class="features" aria-labelledby="features-title">
+            <div class="container">
+                <p class="section-eyebrow">Como podemos ajudar</p>
+                <h2 id="features-title" class="section-title">Quatro áreas de apoio</h2>
+
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-number" aria-hidden="true">01</div>
+                        <h3>Sobre o Alzheimer</h3>
+                        <p>
+                            Informação clara sobre a doença, suas fases, sintomas
+                            e quando procurar avaliação médica especializada.
+                        </p>
+                        <a href="pages/sobre-alzheimer.html" class="card-link">Saber mais</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-number" aria-hidden="true">02</div>
+                        <h3>Apoio ao Cuidador</h3>
+                        <p>
+                            Ferramentas práticas para o dia a dia: lembretes de medicação,
+                            diário de sintomas e orientações fundamentadas.
+                        </p>
+                        <a href="pages/cuidador.html" class="card-link">Acessar ferramentas</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-number" aria-hidden="true">03</div>
+                        <h3>Atividades</h3>
+                        <p>
+                            Sugestões de atividades cotidianas para estimular o paciente
+                            de forma respeitosa e prazerosa.
+                        </p>
+                        <a href="pages/atividades.html" class="card-link">Ver atividades</a>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-number" aria-hidden="true">04</div>
+                        <h3>Comunidade</h3>
+                        <p>
+                            Recursos, associações de apoio e depoimentos de famílias
+                            que vivem essa caminhada todos os dias.
+                        </p>
+                        <a href="pages/comunidade.html" class="card-link">Conhecer recursos</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frase de acolhimento -->
+        <section class="quote-section" aria-label="Mensagem de acolhimento">
+            <div class="container">
+                <blockquote class="quote">
+                    <p>
+                        Cuidar de alguém com Alzheimer é um ato de amor diário.
+                        Lembre-se: cuidar de você também é parte do cuidado.
+                    </p>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Recursos rápidos -->
+        <section class="quick-help" aria-labelledby="quick-help-title">
+            <div class="container">
+                <p class="section-eyebrow">Atendimento imediato</p>
+                <h2 id="quick-help-title" class="section-title">Contatos de apoio</h2>
+                <div class="help-grid">
+                    <div class="help-card">
+                        <h3>Emergência médica</h3>
+                        <p>SAMU</p>
+                        <p><strong>192</strong></p>
+                    </div>
+                    <div class="help-card">
+                        <h3>Apoio emocional</h3>
+                        <p>CVV — 24h, gratuito e sigiloso</p>
+                        <p><strong>188</strong></p>
+                    </div>
+                    <div class="help-card">
+                        <h3>ABRAz</h3>
+                        <p>Associação Brasileira de Alzheimer</p>
+                        <p><strong>0800 055 1906</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="container">
+            <p><strong>Caminhos da Memória</strong></p>
+            <p>Um espaço de apoio para famílias.</p>
+            <p class="footer-note">
+                Este site tem caráter informativo e não substitui orientação médica profissional.
+                Em caso de dúvidas sobre saúde, consulte sempre um médico.
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

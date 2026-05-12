@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ferramentas e orientações para familiares que cuidam de pessoas com Alzheimer.">
+    <title>Para Cuidadores — Caminhos da Memória</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+    <div class="accessibility-bar" role="region" aria-label="Controles de acessibilidade">
+        <div class="container">
+            <span class="accessibility-label">Acessibilidade:</span>
+            <button id="font-decrease" aria-label="Diminuir fonte" class="accessibility-btn">A−</button>
+            <button id="font-reset" aria-label="Tamanho normal" class="accessibility-btn">A</button>
+            <button id="font-increase" aria-label="Aumentar fonte" class="accessibility-btn">A+</button>
+            <button id="contrast-toggle" aria-label="Alto contraste" class="accessibility-btn">Alto Contraste</button>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header-content">
+            <a href="../index.html" class="logo" aria-label="Caminhos da Memória - página inicial">
+                <span class="logo-icon" aria-hidden="true">CM</span>
+                <span class="logo-text">Caminhos da Memória</span>
+            </a>
+            <nav class="main-nav" aria-label="Navegação principal">
+                <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainMenu">
+                    <span aria-hidden="true">☰</span>
+                    <span class="sr-only">Abrir menu</span>
+                </button>
+                <ul class="menu" id="mainMenu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="sobre-alzheimer.html">Sobre Alzheimer</a></li>
+                    <li><a href="cuidador.html">Para Cuidadores</a></li>
+                    <li><a href="atividades.html">Atividades</a></li>
+                    <li><a href="comunidade.html">Comunidade</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container">
+            <span class="page-banner-eyebrow">Recursos práticos</span>
+            <h1>Para Cuidadores</h1>
+            <p class="page-subtitle">
+                Ferramentas e orientações para apoiar familiares que cuidam
+                de pessoas com Alzheimer no dia a dia.
+            </p>
+        </div>
+    </section>
+
+    <main id="main-content" class="page-content">
+        <div class="container">
+
+            <nav class="page-toc" aria-label="Sumário desta página">
+                <h2>Recursos disponíveis</h2>
+                <ul>
+                    <li><a href="#dicas">Orientações para o dia a dia</a></li>
+                    <li><a href="#medicacao">Lembrete de medicação</a></li>
+                    <li><a href="#diario">Diário de sintomas</a></li>
+                    <li><a href="#autocuidado">Cuidando do cuidador</a></li>
+                </ul>
+            </nav>
+
+            <!-- Dicas -->
+            <section id="dicas" class="content-section">
+                <h2>Orientações para o dia a dia</h2>
+
+                <div class="dicas-grid">
+                    <article class="dica-card">
+                        <p class="dica-titulo">Área 01</p>
+                        <h3>Comunicação</h3>
+                        <ul>
+                            <li>Fale devagar, com frases curtas e diretas</li>
+                            <li>Mantenha contato visual durante a conversa</li>
+                            <li>Use um tom calmo e respeitoso</li>
+                            <li>Evite corrigir; prefira concordar e redirecionar</li>
+                        </ul>
+                    </article>
+
+                    <article class="dica-card">
+                        <p class="dica-titulo">Área 02</p>
+                        <h3>Ambiente seguro</h3>
+                        <ul>
+                            <li>Retire tapetes que possam causar quedas</li>
+                            <li>Mantenha boa iluminação em todos os cômodos</li>
+                            <li>Instale barras de apoio no banheiro</li>
+                            <li>Use etiquetas em portas e gavetas</li>
+                        </ul>
+                    </article>
+
+                    <article class="dica-card">
+                        <p class="dica-titulo">Área 03</p>
+                        <h3>Rotina estruturada</h3>
+                        <ul>
+                            <li>Mantenha horários fixos para refeições, banho e sono</li>
+                            <li>Evite mudanças bruscas no ambiente</li>
+                            <li>Inclua atividades prazerosas todos os dias</li>
+                            <li>Respeite o ritmo da pessoa</li>
+                        </ul>
+                    </article>
+
+                    <article class="dica-card">
+                        <p class="dica-titulo">Área 04</p>
+                        <h3>Alimentação</h3>
+                        <ul>
+                            <li>Ofereça refeições em horários regulares</li>
+                            <li>Prefira pratos coloridos e simples</li>
+                            <li>Corte os alimentos em pedaços pequenos</li>
+                            <li>Garanta hidratação ao longo do dia</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Lembrete de medicação -->
+            <section id="medicacao" class="content-section">
+                <h2>Lembrete de medicação</h2>
+                <p>
+                    Cadastre as medicações para acompanhar de forma organizada.
+                    Os dados ficam salvos apenas no seu navegador e não são enviados
+                    para nenhum servidor.
+                </p>
+
+                <form id="form-medicacao" class="formulario">
+                    <div class="form-row">
+                        <label for="med-nome">Nome do medicamento</label>
+                        <input type="text" id="med-nome" required placeholder="Ex.: Donepezila">
+                    </div>
+                    <div class="form-row">
+                        <label for="med-dose">Dose</label>
+                        <input type="text" id="med-dose" required placeholder="Ex.: 10 mg">
+                    </div>
+                    <div class="form-row">
+                        <label for="med-horario">Horário</label>
+                        <input type="time" id="med-horario" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="med-obs">Observações (opcional)</label>
+                        <input type="text" id="med-obs" placeholder="Ex.: Tomar com água, após o café">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Adicionar medicação</button>
+                </form>
+
+                <div id="lista-medicacoes" class="lista-itens" aria-live="polite">
+                    <h3>Medicações cadastradas</h3>
+                    <p class="vazio-msg">Nenhuma medicação cadastrada ainda.</p>
+                </div>
+            </section>
+
+            <!-- Diário de sintomas -->
+            <section id="diario" class="content-section">
+                <h2>Diário de sintomas</h2>
+                <p>
+                    Registre observações do dia a dia. Esses registros podem ser
+                    valiosos durante consultas médicas para acompanhar a evolução
+                    e ajustar o plano de cuidados.
+                </p>
+
+                <form id="form-diario" class="formulario">
+                    <div class="form-row">
+                        <label for="diario-data">Data</label>
+                        <input type="date" id="diario-data" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="diario-humor">Humor predominante</label>
+                        <select id="diario-humor" required>
+                            <option value="">Selecione...</option>
+                            <option value="Bom">Bom — calmo e tranquilo</option>
+                            <option value="Normal">Normal — sem alterações significativas</option>
+                            <option value="Agitado">Agitado ou ansioso</option>
+                            <option value="Triste">Retraído ou triste</option>
+                            <option value="Irritado">Irritado ou impaciente</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="diario-sono">Qualidade do sono</label>
+                        <select id="diario-sono" required>
+                            <option value="">Selecione...</option>
+                            <option value="Bom">Dormiu bem durante a noite</option>
+                            <option value="Regular">Acordou algumas vezes</option>
+                            <option value="Ruim">Sono fragmentado ou agitado</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="diario-obs">Observações relevantes</label>
+                        <textarea id="diario-obs" rows="4" placeholder="Ex.: Apresentou episódios de confusão pela manhã. Aceitou bem a alimentação."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar registro</button>
+                </form>
+
+                <div id="lista-diario" class="lista-itens" aria-live="polite">
+                    <h3>Últimos registros</h3>
+                    <p class="vazio-msg">Nenhum registro ainda.</p>
+                </div>
+            </section>
+
+            <!-- Autocuidado -->
+            <section id="autocuidado" class="content-section autocuidado">
+                <h2>Cuidando do cuidador</h2>
+                <p>
+                    Cuidar de alguém com Alzheimer é uma jornada longa e exigente.
+                    O cuidador também precisa de atenção e cuidados.
+                </p>
+
+                <div class="autocuidado-grid">
+                    <div class="ac-item">
+                        <h3>Aceite ajuda</h3>
+                        <p>Não tente fazer tudo sozinho. Compartilhe tarefas com outros familiares
+                            e considere apoio profissional quando necessário.</p>
+                    </div>
+                    <div class="ac-item">
+                        <h3>Reserve tempo para você</h3>
+                        <p>Mesmo trinta minutos diários fazem diferença. Caminhe, leia,
+                            mantenha contato com pessoas queridas.</p>
+                    </div>
+                    <div class="ac-item">
+                        <h3>Cuide da sua saúde</h3>
+                        <p>Mantenha consultas médicas regulares, alimentação equilibrada
+                            e alguma forma de atividade física.</p>
+                    </div>
+                    <div class="ac-item">
+                        <h3>Busque apoio emocional</h3>
+                        <p>Sentir cansaço, tristeza ou frustração é natural. Apoio psicológico
+                            é um recurso importante e legítimo.</p>
+                    </div>
+                </div>
+
+                <div class="info-box info-box-warm">
+                    <h3>Telefones úteis</h3>
+                    <p><strong>CVV (apoio emocional):</strong> 188 — atendimento 24h, gratuito e sigiloso</p>
+                    <p><strong>ABRAz:</strong> 0800 055 1906 — Associação Brasileira de Alzheimer</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p><strong>Caminhos da Memória</strong></p>
+            <p>Um espaço de apoio para famílias.</p>
+            <p class="footer-note">
+                Este site tem caráter informativo e não substitui orientação médica profissional.
+            </p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/cuidador.js"></script>
+</body>
+</html>
