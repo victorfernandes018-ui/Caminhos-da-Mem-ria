@@ -204,3 +204,49 @@
     renderizarDiario();
 
 })();
+
+// ============================
+// IMPRESSÃO
+// ============================
+function imprimirSecao(secao) {
+    const titulos = {
+        medicacao: 'Lista de Medicações',
+        diario: 'Diário de Sintomas'
+    };
+
+    const printTitulo = document.getElementById('print-titulo');
+    const printData = document.getElementById('print-data');
+
+    if (printTitulo) printTitulo.textContent = titulos[secao] || '';
+    if (printData) {
+        const agora = new Date();
+        printData.textContent = 'Gerado em: ' + agora.toLocaleDateString('pt-BR', {
+            day: '2-digit', month: 'long', year: 'numeric'
+        });
+    }
+
+    // Esconde as seções que não são desta impressão
+    const todasSecoes = ['medicacao', 'diario', 'dicas', 'autocuidado'];
+    todasSecoes.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.dataset.printHide = id !== secao ? 'true' : 'false';
+    });
+
+    // Adiciona estilo temporário para esconder o que não precisa
+    const style = document.createElement('style');
+    style.id = 'print-temp';
+    style.textContent = `
+        @media print {
+            #${secao === 'medicacao' ? 'diario' : 'medicacao'} { display: none !important; }
+        }
+    `;
+    document.head.appendChild(style);
+
+    window.print();
+
+    // Remove estilo temporário depois
+    setTimeout(() => {
+        const s = document.getElementById('print-temp');
+        if (s) s.remove();
+    }, 1000);
+}

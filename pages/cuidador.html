@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ferramentas e orientações para familiares que cuidam de pessoas com Alzheimer.">
     <title>Para Cuidadores — Caminhos da Memória</title>
+    <!-- PWA -->
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#1E3A5F">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Caminhos">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <link rel="icon" type="image/svg+xml" href="../icons/icon.svg">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/pages.css">
 </head>
@@ -52,6 +60,13 @@
         </div>
     </section>
 
+    <!-- Cabeçalho visível apenas na impressão -->
+    <div class="print-header" style="display:none" aria-hidden="true">
+        <h1>Caminhos da Memória</h1>
+        <p id="print-titulo"></p>
+        <p id="print-data"></p>
+    </div>
+
     <main id="main-content" class="page-content">
         <div class="container">
 
@@ -61,6 +76,7 @@
                     <li><a href="#dicas">Orientações para o dia a dia</a></li>
                     <li><a href="#medicacao">Lembrete de medicação</a></li>
                     <li><a href="#diario">Diário de sintomas</a></li>
+                    <li><a href="#checklist">Checklist de rotina diária</a></li>
                     <li><a href="#autocuidado">Cuidando do cuidador</a></li>
                 </ul>
             </nav>
@@ -146,7 +162,10 @@
                 </form>
 
                 <div id="lista-medicacoes" class="lista-itens" aria-live="polite">
-                    <h3>Medicações cadastradas</h3>
+                    <div class="lista-header">
+                        <h3>Medicações cadastradas</h3>
+                        <button class="btn-imprimir" onclick="imprimirSecao('medicacao')" aria-label="Imprimir lista de medicações">🖨 Imprimir lista</button>
+                    </div>
                     <p class="vazio-msg">Nenhuma medicação cadastrada ainda.</p>
                 </div>
             </section>
@@ -193,9 +212,32 @@
                 </form>
 
                 <div id="lista-diario" class="lista-itens" aria-live="polite">
-                    <h3>Últimos registros</h3>
+                    <div class="lista-header">
+                        <h3>Últimos registros</h3>
+                        <button class="btn-imprimir" onclick="imprimirSecao('diario')" aria-label="Imprimir diário de sintomas">🖨 Imprimir diário</button>
+                    </div>
                     <p class="vazio-msg">Nenhum registro ainda.</p>
                 </div>
+            </section>
+
+            <!-- Checklist de Rotina -->
+            <section id="checklist" class="content-section">
+                <h2>Checklist de rotina diária</h2>
+                <p>
+                    Marque as tarefas conforme as realiza. A lista reseta automaticamente
+                    a cada novo dia. Os dados ficam salvos apenas no seu navegador.
+                </p>
+
+                <div class="checklist-progresso">
+                    <div class="progresso-barra-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="checklist-progressbar">
+                        <div class="progresso-barra" id="checklist-barra" style="width:0%"></div>
+                    </div>
+                    <span class="progresso-texto" id="checklist-progresso-texto">0 de 10 tarefas</span>
+                </div>
+
+                <div class="checklist-rotina" id="checklist-lista" aria-label="Checklist de rotina diária"></div>
+
+                <button class="checklist-reset" id="checklist-reset">Resetar checklist</button>
             </section>
 
             <!-- Autocuidado -->
@@ -241,15 +283,41 @@
 
     <footer class="footer">
         <div class="container">
-            <p><strong>Caminhos da Memória</strong></p>
-            <p>Um espaço de apoio para famílias.</p>
-            <p class="footer-note">
-                Este site tem caráter informativo e não substitui orientação médica profissional.
-            </p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">Caminhos da Memória</span>
+                    <p>Um espaço de apoio para pessoas com Alzheimer e seus familiares cuidadores.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="sobre-alzheimer.html">Sobre Alzheimer</a></li>
+                        <li><a href="cuidador.html">Para Cuidadores</a></li>
+                        <li><a href="atividades.html">Atividades</a></li>
+                        <li><a href="comunidade.html">Comunidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contatos de apoio</h4>
+                    <p>SAMU — <strong>192</strong></p>
+                    <p>CVV (24h) — <strong>188</strong></p>
+                    <p>ABRAz — <strong>0800 055 1906</strong></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="ano-footer"></span> Caminhos da Memória — Todos os direitos reservados.</p>
+                <p class="footer-note">
+                    Este site tem caráter informativo e não substitui orientação médica profissional.
+                    Em caso de dúvidas sobre saúde, consulte sempre um médico.
+                </p>
+            </div>
         </div>
     </footer>
 
     <script src="../js/main.js"></script>
     <script src="../js/cuidador.js"></script>
+    <script src="../js/checklist.js"></script>
+    <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});</script>
 </body>
 </html>

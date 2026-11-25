@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminhos da Memória</title>
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#1E3A5F">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Caminhos">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <link rel="icon" type="image/svg+xml" href="../icons/icon.svg">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/paciente.css">
+</head>
+<body class="modo-paciente">
+
+    <div class="paciente-wrap">
+
+        <!-- Cabeçalho simples -->
+        <header class="paciente-header">
+            <span class="paciente-logo">Caminhos da Memória</span>
+            <a href="modo.html" class="btn-modo-cuidador">Trocar usuário</a>
+        </header>
+
+        <!-- Data de hoje -->
+        <div class="paciente-hoje">
+            <div class="paciente-hoje-label">Hoje é</div>
+            <div class="paciente-hoje-data" id="data-hoje"></div>
+        </div>
+
+        <!-- Card principal: quem sou eu -->
+        <div class="quem-sou-card">
+            <div id="foto-paciente-wrap">
+                <div class="quem-sou-foto-placeholder" id="foto-placeholder">👤</div>
+                <img id="foto-paciente" class="quem-sou-foto" src="" alt="" style="display:none">
+            </div>
+
+            <div class="quem-sou-nome" id="nome-paciente">Maria de Souza</div>
+            <div class="quem-sou-idade" id="idade-paciente">73 anos</div>
+
+            <div class="quem-sou-info">
+                <div class="quem-sou-info-label">Eu moro em</div>
+                <div class="quem-sou-info-valor" id="endereco-paciente">Rua das Flores, 234</div>
+            </div>
+
+            <div class="quem-sou-info" style="margin-top:10px">
+                <div class="quem-sou-info-label">Meu cuidador</div>
+                <div class="quem-sou-info-valor" id="cuidador-nome-exibir">Joana (filha)</div>
+            </div>
+
+            <a href="#" id="btn-ligar" class="btn-ligar" aria-label="Ligar para o cuidador">
+                <span class="btn-ligar-icone">📞</span>
+                <span>Ligar para <span id="cuidador-nome-ligar">Joana</span></span>
+            </a>
+        </div>
+
+        <!-- Navegação -->
+        <nav class="paciente-nav" aria-label="Opções do app">
+            <a href="album.html" class="paciente-nav-btn">
+                <span class="paciente-nav-icone">📷</span>
+                <span class="paciente-nav-label">Minhas fotos</span>
+            </a>
+            <a href="atividades-paciente.html" class="paciente-nav-btn">
+                <span class="paciente-nav-icone">🧩</span>
+                <span class="paciente-nav-label">Atividades</span>
+            </a>
+            <a href="musica.html" class="paciente-nav-btn">
+                <span class="paciente-nav-icone">🎵</span>
+                <span class="paciente-nav-label">Minha música</span>
+            </a>
+            <a href="cuidador.html" class="paciente-nav-btn">
+                <span class="paciente-nav-icone">💊</span>
+                <span class="paciente-nav-label">Medicações</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <!-- Modal de configuração (editado pelo cuidador) -->
+    <div id="modal-config" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:200; align-items:center; justify-content:center; padding:20px;">
+        <div style="background:white; border-radius:20px; padding:28px; width:100%; max-width:480px; max-height:90vh; overflow-y:auto;">
+            <h2 style="font-family:'Playfair Display',Georgia,serif; font-size:22px; color:#1E3A5F; margin-bottom:20px;">Configurar perfil do paciente</h2>
+
+            <div style="margin-bottom:16px;">
+                <label style="display:block; font-size:14px; font-weight:600; color:#4A5568; margin-bottom:6px;">Nome completo</label>
+                <input id="cfg-nome" type="text" placeholder="Ex.: Maria de Souza" style="width:100%; padding:12px 14px; border:2px solid #E2E8F0; border-radius:10px; font-size:16px; font-family:'Inter',sans-serif;">
+            </div>
+
+            <div style="margin-bottom:16px;">
+                <label style="display:block; font-size:14px; font-weight:600; color:#4A5568; margin-bottom:6px;">Idade</label>
+                <input id="cfg-idade" type="number" min="1" max="120" placeholder="Ex.: 73" style="width:100%; padding:12px 14px; border:2px solid #E2E8F0; border-radius:10px; font-size:16px; font-family:'Inter',sans-serif;">
+            </div>
+
+            <div style="margin-bottom:16px;">
+                <label style="display:block; font-size:14px; font-weight:600; color:#4A5568; margin-bottom:6px;">Endereço</label>
+                <input id="cfg-endereco" type="text" placeholder="Ex.: Rua das Flores, 234" style="width:100%; padding:12px 14px; border:2px solid #E2E8F0; border-radius:10px; font-size:16px; font-family:'Inter',sans-serif;">
+            </div>
+
+            <div style="margin-bottom:16px;">
+                <label style="display:block; font-size:14px; font-weight:600; color:#4A5568; margin-bottom:6px;">Nome do cuidador</label>
+                <input id="cfg-cuidador-nome" type="text" placeholder="Ex.: Joana (filha)" style="width:100%; padding:12px 14px; border:2px solid #E2E8F0; border-radius:10px; font-size:16px; font-family:'Inter',sans-serif;">
+            </div>
+
+            <div style="margin-bottom:16px;">
+                <label style="display:block; font-size:14px; font-weight:600; color:#4A5568; margin-bottom:6px;">Telefone do cuidador</label>
+                <input id="cfg-cuidador-tel" type="tel" placeholder="Ex.: (11) 99999-0000" style="width:100%; padding:12px 14px; border:2px solid #E2E8F0; border-radius:10px; font-size:16px; font-family:'Inter',sans-serif;">
+            </div>
+
+            <div style="margin-bottom:24px;">
+                <label style="display:block; font-size:14px; font-weight:600; color:#4A5568; margin-bottom:6px;">Foto do paciente</label>
+                <input id="cfg-foto" type="file" accept="image/*" style="font-size:14px; color:#4A5568;">
+            </div>
+
+            <div style="display:flex; gap:12px;">
+                <button onclick="salvarConfig()" style="flex:1; background:#1E3A5F; color:white; border:none; padding:14px; border-radius:10px; font-size:16px; font-weight:600; font-family:'Inter',sans-serif; cursor:pointer;">Salvar</button>
+                <button onclick="fecharConfig()" style="flex:1; background:#F7F9FC; border:2px solid #E2E8F0; color:#4A5568; padding:14px; border-radius:10px; font-size:16px; font-family:'Inter',sans-serif; cursor:pointer;">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão flutuante de configuração (toque longo na foto) -->
+    <button id="btn-config-flutuante"
+        onclick="abrirConfig()"
+        aria-label="Configurar perfil"
+        style="position:fixed; bottom:24px; right:24px; background:#1E3A5F; color:white; border:none; width:52px; height:52px; border-radius:50%; font-size:22px; cursor:pointer; box-shadow:0 4px 16px rgba(30,58,95,0.3); display:flex; align-items:center; justify-content:center;">
+        ⚙️
+    </button>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/paciente.js"></script>
+    <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});</script>
+</body>
+</html>

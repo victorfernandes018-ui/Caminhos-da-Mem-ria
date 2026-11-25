@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem está usando? — Caminhos da Memória</title>
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#1E3A5F">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Caminhos">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <link rel="icon" type="image/svg+xml" href="../icons/icon.svg">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/paciente.css">
+</head>
+<body>
+    <main class="modo-selecao" id="main-content">
+        <div class="modo-logo">Caminhos da Memória</div>
+        <p class="modo-subtitulo">Quem vai usar agora?</p>
+
+        <div class="modo-opcoes">
+            <a href="paciente.html" class="modo-opcao destaque" id="btn-paciente">
+                <div class="modo-opcao-icone">👤</div>
+                <div class="modo-opcao-titulo">Eu mesmo</div>
+                <div class="modo-opcao-desc">Ver minhas fotos, atividades e informações importantes</div>
+            </a>
+
+            <a href="../index.html" class="modo-opcao" id="btn-cuidador">
+                <div class="modo-opcao-icone">🤝</div>
+                <div class="modo-opcao-titulo">Sou cuidador</div>
+                <div class="modo-opcao-desc">Gerenciar medicações, diário de sintomas e informações do paciente</div>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});
+    </script>
+</body>
+</html>

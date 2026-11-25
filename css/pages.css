@@ -5,7 +5,7 @@
 
 /* Banner topo das páginas */
 .page-banner {
-    background: linear-gradient(135deg, #0F2742 0%, #1E3A5F 100%);
+    background: linear-gradient(160deg, #0A1D33 0%, #0F2742 45%, #1E3A5F 100%);
     color: white;
     padding: var(--espaco-lg) 0;
     text-align: center;
@@ -20,7 +20,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: radial-gradient(circle at 70% 50%, rgba(201, 169, 97, 0.08) 0%, transparent 50%);
+    background-image:
+        radial-gradient(circle at 70% 30%, rgba(201, 169, 97, 0.14) 0%, transparent 50%),
+        radial-gradient(circle at 10% 90%, rgba(201, 169, 97, 0.08) 0%, transparent 45%);
     pointer-events: none;
 }
 
@@ -75,7 +77,8 @@
     left: 0;
     width: 60px;
     height: 3px;
-    background: var(--cor-destaque);
+    border-radius: 2px;
+    background: var(--gradiente-destaque);
 }
 
 .content-section h3 {
@@ -205,7 +208,7 @@
     top: var(--espaco-md);
     width: 36px;
     height: 36px;
-    background: var(--cor-primaria);
+    background: var(--gradiente-primaria);
     color: white;
     border-radius: 50%;
     display: inline-flex;
@@ -214,6 +217,7 @@
     font-family: var(--fonte-serif);
     font-weight: 700;
     font-size: 1.125rem;
+    box-shadow: 0 4px 10px -2px rgba(15, 39, 66, 0.35);
 }
 
 .fase-card h3 {
@@ -503,15 +507,16 @@
     background: var(--cor-fundo-card);
     padding: var(--espaco-md);
     border-radius: var(--raio-borda);
-    box-shadow: var(--sombra-sutil);
+    box-shadow: var(--sombra-card);
     border: 1px solid var(--cor-borda);
     border-top: 3px solid var(--cor-primaria);
     transition: var(--transicao);
 }
 
 .recurso-card:hover {
-    box-shadow: var(--sombra-card);
+    box-shadow: var(--sombra-card-hover);
     border-top-color: var(--cor-destaque);
+    transform: translateY(-3px);
 }
 
 .recurso-card h3 {
@@ -556,6 +561,197 @@
     font-size: 0.95rem;
 }
 
+/* Fórum / Mural da Comunidade */
+.char-count {
+    display: block;
+    text-align: right;
+    font-size: var(--fonte-pequena);
+    color: var(--cor-texto-claro);
+    margin-top: 4px;
+}
+
+.forum-lista {
+    margin-top: var(--espaco-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-sm);
+}
+
+.forum-card {
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-left: 3px solid var(--cor-destaque);
+    border-radius: var(--raio-borda);
+    padding: var(--espaco-sm) var(--espaco-md);
+    position: relative;
+}
+
+.forum-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-sm);
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.forum-autor {
+    font-weight: 600;
+    color: var(--cor-primaria-escura);
+    font-size: var(--fonte-pequena);
+}
+
+.forum-data {
+    color: var(--cor-texto-claro);
+    font-size: var(--fonte-pequena);
+}
+
+.forum-texto {
+    color: var(--cor-texto-medio);
+    margin-bottom: 8px;
+    white-space: pre-wrap;
+}
+
+.forum-excluir {
+    background: transparent;
+    border: none;
+    color: var(--cor-alerta);
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 0;
+    font-family: var(--fonte-sans);
+    opacity: 0.6;
+    transition: var(--transicao);
+}
+
+.forum-excluir:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* Checklist de rotina */
+.checklist-rotina {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: var(--espaco-sm);
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px var(--espaco-sm);
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-borda);
+    transition: var(--transicao);
+    cursor: pointer;
+}
+
+.checklist-item:hover {
+    border-color: var(--cor-destaque);
+    background: var(--cor-fundo-suave);
+}
+
+.checklist-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--cor-primaria);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checklist-item label {
+    cursor: pointer;
+    color: var(--cor-texto-medio);
+    flex: 1;
+    font-size: var(--fonte-base);
+}
+
+.checklist-item.concluido label {
+    text-decoration: line-through;
+    color: var(--cor-texto-claro);
+}
+
+.checklist-progresso {
+    margin-top: var(--espaco-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-sm);
+}
+
+.progresso-barra-wrap {
+    flex: 1;
+    background: var(--cor-borda);
+    border-radius: 99px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.progresso-barra {
+    height: 100%;
+    background: var(--cor-primaria);
+    border-radius: 99px;
+    transition: width 0.4s ease;
+}
+
+.progresso-texto {
+    font-size: var(--fonte-pequena);
+    color: var(--cor-texto-medio);
+    white-space: nowrap;
+}
+
+.checklist-reset {
+    background: transparent;
+    border: 1px solid var(--cor-borda-escura);
+    color: var(--cor-texto-medio);
+    padding: 6px 14px;
+    border-radius: var(--raio-borda);
+    font-size: var(--fonte-pequena);
+    font-family: var(--fonte-sans);
+    cursor: pointer;
+    transition: var(--transicao);
+    margin-top: var(--espaco-sm);
+}
+
+.checklist-reset:hover {
+    background: var(--cor-fundo-suave);
+    color: var(--cor-alerta);
+    border-color: var(--cor-alerta);
+}
+
+/* Lista header com botão imprimir */
+.lista-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--espaco-xs);
+    margin-bottom: var(--espaco-sm);
+}
+
+.lista-header h3 {
+    margin-bottom: 0;
+}
+
+.btn-imprimir {
+    background: transparent;
+    border: 1px solid var(--cor-borda-escura);
+    color: var(--cor-texto-medio);
+    padding: 6px 14px;
+    border-radius: var(--raio-borda);
+    font-size: var(--fonte-pequena);
+    font-family: var(--fonte-sans);
+    cursor: pointer;
+    transition: var(--transicao);
+}
+
+.btn-imprimir:hover {
+    background: var(--cor-fundo-suave);
+    border-color: var(--cor-primaria);
+    color: var(--cor-primaria);
+}
+
 /* Responsivo */
 @media (max-width: 600px) {
     .fase-card {
@@ -565,5 +761,70 @@
     .fase-numero {
         position: static;
         margin-bottom: var(--espaco-xs);
+    }
+}
+
+/* Impressão */
+@media print {
+    .accessibility-bar,
+    .header,
+    .page-banner,
+    .page-toc,
+    .formulario,
+    .btn-imprimir,
+    .footer,
+    #autocuidado,
+    #dicas {
+        display: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+        color: #000;
+        background: #fff;
+    }
+
+    .page-content {
+        padding: 0;
+    }
+
+    .content-section {
+        border: none;
+        padding: 0;
+        margin-bottom: 24pt;
+        break-inside: avoid;
+    }
+
+    .content-section h2 {
+        font-size: 16pt;
+        border-bottom: 2pt solid #000;
+        padding-bottom: 4pt;
+        margin-bottom: 12pt;
+    }
+
+    .item-medicacao,
+    .item-diario {
+        border: 1pt solid #ccc;
+        padding: 8pt;
+        margin-bottom: 8pt;
+        break-inside: avoid;
+    }
+
+    .print-header {
+        display: block !important;
+        text-align: center;
+        margin-bottom: 20pt;
+        padding-bottom: 10pt;
+        border-bottom: 2pt solid #000;
+    }
+
+    .print-header h1 {
+        font-size: 18pt;
+        margin-bottom: 4pt;
+    }
+
+    .print-header p {
+        font-size: 10pt;
+        color: #555;
     }
 }

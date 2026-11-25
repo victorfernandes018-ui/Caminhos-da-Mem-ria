@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Recursos de apoio e associações para familiares de pessoas com Alzheimer.">
     <title>Comunidade — Caminhos da Memória</title>
+    <!-- PWA -->
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#1E3A5F">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Caminhos">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <link rel="icon" type="image/svg+xml" href="../icons/icon.svg">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/pages.css">
 </head>
@@ -127,15 +135,29 @@
                 </blockquote>
             </section>
 
-            <section class="content-section">
-                <h2>Em desenvolvimento</h2>
-                <div class="info-box info-box-warm">
-                    <p>
-                        Estamos preparando um espaço para famílias trocarem experiências
-                        diretamente neste site. Por enquanto, recomendamos os grupos
-                        das associações listadas acima — são acolhedores e
-                        reúnem pessoas que vivem a mesma realidade.
-                    </p>
+            <section class="content-section" id="forum">
+                <h2>Mural da Comunidade</h2>
+                <p>
+                    Compartilhe uma mensagem, dica ou palavra de apoio com outras famílias.
+                    As mensagens ficam salvas apenas no seu navegador.
+                </p>
+
+                <form id="form-forum" class="formulario">
+                    <div class="form-row">
+                        <label for="forum-nome">Seu nome (opcional)</label>
+                        <input type="text" id="forum-nome" placeholder="Ex.: Ana, cuidadora">
+                    </div>
+                    <div class="form-row">
+                        <label for="forum-mensagem">Mensagem <span aria-hidden="true">*</span></label>
+                        <textarea id="forum-mensagem" rows="4" required maxlength="500"
+                            placeholder="Compartilhe uma experiência, dica ou palavra de encorajamento..."></textarea>
+                        <span class="char-count" id="forum-contador">0 / 500</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Publicar mensagem</button>
+                </form>
+
+                <div id="forum-mensagens" class="forum-lista" aria-live="polite">
+                    <p class="vazio-msg">Nenhuma mensagem ainda. Seja o primeiro a compartilhar!</p>
                 </div>
             </section>
 
@@ -144,14 +166,40 @@
 
     <footer class="footer">
         <div class="container">
-            <p><strong>Caminhos da Memória</strong></p>
-            <p>Um espaço de apoio para famílias.</p>
-            <p class="footer-note">
-                Este site tem caráter informativo e não substitui orientação médica profissional.
-            </p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">Caminhos da Memória</span>
+                    <p>Um espaço de apoio para pessoas com Alzheimer e seus familiares cuidadores.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="sobre-alzheimer.html">Sobre Alzheimer</a></li>
+                        <li><a href="cuidador.html">Para Cuidadores</a></li>
+                        <li><a href="atividades.html">Atividades</a></li>
+                        <li><a href="comunidade.html">Comunidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contatos de apoio</h4>
+                    <p>SAMU — <strong>192</strong></p>
+                    <p>CVV (24h) — <strong>188</strong></p>
+                    <p>ABRAz — <strong>0800 055 1906</strong></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="ano-footer"></span> Caminhos da Memória — Todos os direitos reservados.</p>
+                <p class="footer-note">
+                    Este site tem caráter informativo e não substitui orientação médica profissional.
+                    Em caso de dúvidas sobre saúde, consulte sempre um médico.
+                </p>
+            </div>
         </div>
     </footer>
 
     <script src="../js/main.js"></script>
+    <script src="../js/forum.js"></script>
+    <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});</script>
 </body>
 </html>

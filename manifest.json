@@ -1,0 +1,59 @@
+{
+  "name": "Caminhos da Memória",
+  "short_name": "Caminhos",
+  "description": "Apoio, informação e ferramentas para famílias que cuidam de pessoas com Alzheimer.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0F2742",
+  "theme_color": "#1E3A5F",
+  "lang": "pt-BR",
+  "categories": ["health", "medical"],
+  "icons": [
+    {
+      "src": "icons/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Para Cuidadores",
+      "short_name": "Cuidadores",
+      "url": "/pages/cuidador.html",
+      "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Sobre Alzheimer",
+      "short_name": "Alzheimer",
+      "url": "/pages/sobre-alzheimer.html",
+      "icons": [{ "src": "icons/icon-96.png", "sizes": "96x96" }]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Fotos — Caminhos da Memória</title>
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#1E3A5F">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <link rel="icon" type="image/svg+xml" href="../icons/icon.svg">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/paciente.css">
+</head>
+<body class="modo-paciente">
+
+    <div class="paciente-wrap">
+
+        <header class="paciente-header">
+            <span class="paciente-logo">Caminhos da Memória</span>
+            <a href="modo.html" class="btn-modo-cuidador">Trocar usuário</a>
+        </header>
+
+        <a href="paciente.html" class="btn-voltar-paciente">← Voltar</a>
+
+        <h1 class="paciente-titulo">Minhas fotos</h1>
+        <p class="paciente-subtitulo">Memórias especiais da sua vida</p>
+
+        <!-- Filtro por categoria -->
+        <div class="album-categorias" id="categorias-wrap">
+            <button class="album-cat-btn ativo" data-cat="Todas" onclick="filtrarCategoria(this)">Todas</button>
+            <button class="album-cat-btn" data-cat="Família" onclick="filtrarCategoria(this)">Família</button>
+            <button class="album-cat-btn" data-cat="Viagens" onclick="filtrarCategoria(this)">Viagens</button>
+            <button class="album-cat-btn" data-cat="Casamento" onclick="filtrarCategoria(this)">Casamento</button>
+            <button class="album-cat-btn" data-cat="Filhos" onclick="filtrarCategoria(this)">Filhos</button>
+            <button class="album-cat-btn" data-cat="Netos" onclick="filtrarCategoria(this)">Netos</button>
+        </div>
+
+        <!-- Grade de fotos -->
+        <div class="album-grid" id="album-grid"></div>
+
+        <!-- Área de upload (só aparece no modo cuidador) -->
+        <div id="upload-area-wrap" style="margin-top:28px; display:none;">
+            <div class="album-upload-area" onclick="document.getElementById('upload-input').click()">
+                <div class="album-upload-icone">📷</div>
+                <div class="album-upload-texto">Toque para adicionar uma foto</div>
+            </div>
+            <input type="file" id="upload-input" class="album-upload-input" accept="image/*" multiple onchange="handleUpload(event)">
+
+            <div id="form-foto" style="display:none; background:white; border-radius:14px; padding:20px; margin-top:12px;">
+                <div style="margin-bottom:12px;">
+                    <label style="display:block; font-size:14px; font-weight:600; color:#4A5568; margin-bottom:6px;">Legenda</label>
+                    <input id="foto-legenda" type="text" placeholder="Ex.: Casamento, 1974" style="width:100%; padding:10px 14px; border:2px solid #E2E8F0; border-radius:8px; font-size:15px; font-family:'Inter',sans-serif;">
+                </div>
+                <div style="margin-bottom:12px;">
+                    <label style="display:block; font-size:14px; font-weight:600; color:#4A5568; margin-bottom:6px;">Categoria</label>
+                    <select id="foto-categoria" style="width:100%; padding:10px 14px; border:2px solid #E2E8F0; border-radius:8px; font-size:15px; font-family:'Inter',sans-serif;">
+                        <option value="Família">Família</option>
+                        <option value="Viagens">Viagens</option>
+                        <option value="Casamento">Casamento</option>
+                        <option value="Filhos">Filhos</option>
+                        <option value="Netos">Netos</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <label style="display:block; font-size:14px; font-weight:600; color:#4A5568; margin-bottom:6px;">Ano (opcional)</label>
+                    <input id="foto-ano" type="number" min="1900" max="2099" placeholder="Ex.: 1974" style="width:100%; padding:10px 14px; border:2px solid #E2E8F0; border-radius:8px; font-size:15px; font-family:'Inter',sans-serif;">
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <button onclick="salvarFoto()" style="flex:1; background:#1E3A5F; color:white; border:none; padding:12px; border-radius:8px; font-size:15px; font-weight:600; font-family:'Inter',sans-serif; cursor:pointer;">Salvar foto</button>
+                    <button onclick="cancelarUpload()" style="flex:1; background:#F7F9FC; border:2px solid #E2E8F0; color:#4A5568; padding:12px; border-radius:8px; font-size:15px; font-family:'Inter',sans-serif; cursor:pointer;">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão para ativar modo edição -->
+        <button id="btn-editar-album" onclick="toggleModoEdicao()"
+            style="margin-top:20px; background:transparent; border:2px solid #CBD5E0; color:#718096; padding:12px 20px; border-radius:10px; font-size:15px; font-family:'Inter',sans-serif; cursor:pointer; width:100%;">
+            ✏️ Adicionar/remover fotos (cuidador)
+        </button>
+
+    </div>
+
+    <!-- Lightbox -->
+    <div class="album-lightbox" id="lightbox" onclick="fecharLightbox()">
+        <button class="album-lightbox-fechar" onclick="fecharLightbox()" aria-label="Fechar foto">✕</button>
+        <img id="lightbox-img" src="" alt="">
+        <div class="album-lightbox-legenda" id="lightbox-legenda"></div>
+        <button onclick="removerFotoAtual()" id="btn-remover-foto"
+            style="display:none; margin-top:14px; background:rgba(184,92,56,0.8); border:none; color:white; padding:10px 22px; border-radius:8px; font-size:15px; cursor:pointer; font-family:'Inter',sans-serif;">
+            🗑 Remover esta foto
+        </button>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/album.js"></script>
+    <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});</script>
+</body>
+</html>

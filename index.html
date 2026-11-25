@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Caminhos da Memória — apoio, informação e recursos para pessoas com Alzheimer e seus familiares cuidadores.">
     <title>Caminhos da Memória — Apoio para Alzheimer</title>
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1E3A5F">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Caminhos">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+    <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -66,7 +76,7 @@
                 <h2 id="features-title" class="section-title">Quatro áreas de apoio</h2>
 
                 <div class="features-grid">
-                    <article class="feature-card">
+                    <article class="feature-card reveal reveal-delay-1">
                         <div class="feature-number" aria-hidden="true">01</div>
                         <h3>Sobre o Alzheimer</h3>
                         <p>
@@ -76,7 +86,7 @@
                         <a href="pages/sobre-alzheimer.html" class="card-link">Saber mais</a>
                     </article>
 
-                    <article class="feature-card">
+                    <article class="feature-card reveal reveal-delay-2">
                         <div class="feature-number" aria-hidden="true">02</div>
                         <h3>Apoio ao Cuidador</h3>
                         <p>
@@ -86,7 +96,7 @@
                         <a href="pages/cuidador.html" class="card-link">Acessar ferramentas</a>
                     </article>
 
-                    <article class="feature-card">
+                    <article class="feature-card reveal reveal-delay-3">
                         <div class="feature-number" aria-hidden="true">03</div>
                         <h3>Atividades</h3>
                         <p>
@@ -96,7 +106,7 @@
                         <a href="pages/atividades.html" class="card-link">Ver atividades</a>
                     </article>
 
-                    <article class="feature-card">
+                    <article class="feature-card reveal reveal-delay-4">
                         <div class="feature-number" aria-hidden="true">04</div>
                         <h3>Comunidade</h3>
                         <p>
@@ -150,15 +160,43 @@
     <!-- Rodapé -->
     <footer class="footer">
         <div class="container">
-            <p><strong>Caminhos da Memória</strong></p>
-            <p>Um espaço de apoio para famílias.</p>
-            <p class="footer-note">
-                Este site tem caráter informativo e não substitui orientação médica profissional.
-                Em caso de dúvidas sobre saúde, consulte sempre um médico.
-            </p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">Caminhos da Memória</span>
+                    <p>Um espaço de apoio para pessoas com Alzheimer e seus familiares cuidadores.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="pages/sobre-alzheimer.html">Sobre Alzheimer</a></li>
+                        <li><a href="pages/cuidador.html">Para Cuidadores</a></li>
+                        <li><a href="pages/atividades.html">Atividades</a></li>
+                        <li><a href="pages/comunidade.html">Comunidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contatos de apoio</h4>
+                    <p>SAMU — <strong>192</strong></p>
+                    <p>CVV (24h) — <strong>188</strong></p>
+                    <p>ABRAz — <strong>0800 055 1906</strong></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="ano-footer"></span> Caminhos da Memória — Todos os direitos reservados.</p>
+                <p class="footer-note">
+                    Este site tem caráter informativo e não substitui orientação médica profissional.
+                    Em caso de dúvidas sobre saúde, consulte sempre um médico.
+                </p>
+            </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').catch(() => {});
+        }
+    </script>
 </body>
 </html>

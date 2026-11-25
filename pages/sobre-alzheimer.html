@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Entenda o que é Alzheimer, seus sintomas, fases e quando procurar ajuda médica.">
     <title>Sobre Alzheimer — Caminhos da Memória</title>
+    <!-- PWA -->
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#1E3A5F">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Caminhos">
+    <link rel="apple-touch-icon" href="../icons/icon-192.png">
+    <link rel="icon" type="image/svg+xml" href="../icons/icon.svg">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/pages.css">
 </head>
@@ -241,14 +249,39 @@
 
     <footer class="footer">
         <div class="container">
-            <p><strong>Caminhos da Memória</strong></p>
-            <p>Um espaço de apoio para famílias.</p>
-            <p class="footer-note">
-                Este site tem caráter informativo e não substitui orientação médica profissional.
-            </p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">Caminhos da Memória</span>
+                    <p>Um espaço de apoio para pessoas com Alzheimer e seus familiares cuidadores.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="../index.html">Início</a></li>
+                        <li><a href="sobre-alzheimer.html">Sobre Alzheimer</a></li>
+                        <li><a href="cuidador.html">Para Cuidadores</a></li>
+                        <li><a href="atividades.html">Atividades</a></li>
+                        <li><a href="comunidade.html">Comunidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contatos de apoio</h4>
+                    <p>SAMU — <strong>192</strong></p>
+                    <p>CVV (24h) — <strong>188</strong></p>
+                    <p>ABRAz — <strong>0800 055 1906</strong></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="ano-footer"></span> Caminhos da Memória — Todos os direitos reservados.</p>
+                <p class="footer-note">
+                    Este site tem caráter informativo e não substitui orientação médica profissional.
+                    Em caso de dúvidas sobre saúde, consulte sempre um médico.
+                </p>
+            </div>
         </div>
     </footer>
 
     <script src="../js/main.js"></script>
+    <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});</script>
 </body>
 </html>

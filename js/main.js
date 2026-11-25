@@ -93,4 +93,29 @@
         }
     });
 
+    // ==========================================
+    // 5. ANO DINÂMICO NO FOOTER
+    // ==========================================
+    const anoFooter = document.getElementById('ano-footer');
+    if (anoFooter) {
+        anoFooter.textContent = new Date().getFullYear();
+    }
+
+    // ==========================================
+    // 6. SCROLL REVEAL
+    // ==========================================
+    const revealEls = document.querySelectorAll('.reveal');
+    if (revealEls.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealEls.forEach(el => observer.observe(el));
+    }
+
 })();
